@@ -120,3 +120,29 @@ st.markdown(f"""
         Basé sur les spécifications du marché à terme marocain
     </div>
 """, unsafe_allow_html=True)
+
+# ────────────────────────────────────────────
+# ROUTING VERS LES PAGES
+# ────────────────────────────────────────────
+
+# Mapping des choix de navigation vers les pages
+page_mapping = {
+    "🏠 Accueil": "pages/01_Accueil.py",
+    "📚 Comprendre les Futures": "pages/02_Comprendre_Futures.py",
+    "🛡️ Simulateur de Couverture": "pages/03_Simulateur_Couverture.py",
+    "💰 Pricing & Arbitrage": "pages/04_Pricing_Arbitrage.py",
+    "⚠️ Gestion des Marges": "pages/05_Gestion_Marges.py",
+    "📊 Risk Dashboard": "pages/06_Risk_Dashboard.py",
+}
+
+# Afficher la page sélectionnée
+if page_choice in page_mapping:
+    # Pour la Phase 2, seule la page 02 est complète
+    if page_choice == "🏠 Accueil":
+        # Contenu de la page d'accueil (déjà dans app.py)
+        pass
+    elif page_choice == "📚 Comprendre les Futures":
+        # Import et exécution de la page 02
+        exec(open("pages/02_Comprendre_Futures.py").read())
+    else:
+        st.info(f"🚧 Module '{page_choice}' en cours de développement - Disponible dans les prochaines phases")
